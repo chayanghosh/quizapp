@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<meta charset="UTF-8">
+<head>
+<title>Result</title>
+<link rel="stylesheet" th:href="@{/style.css}"></head>
+<body class="quiz-container">
+
+			<div class="result">
+				<p>Total correct answer:</p>
+				<p th:if="${result}" th:text="${result.username}"></p>
+			</div>
+
+			<div class="result">
+				<p>Total correct answer:</p>
+				<p th:if="${result}" th:text="${result.totalCorrect}"></p>
+			</div>
+			
+			<div class="result">
+				<p>Total incorrect answer:</p>
+				<p th:if="${result}" th:text="${totalNoOfQ} - ${result.totalCorrect}"></p>
+			</div>
+			
+			<div class="">
+				<button class="buttons" type="button" th:onclick="window.location.href='/score'">View Score Board</button>
+				<button class="buttons" type="button" th:onclick="window.location.href='/'">Back to Homepage</button>
+			</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<div id="home">
+<body>
+<div class="quiz-container">
+    <h1>Test Your Skills!</h1>
+    <p>Welcome to the online quiz app. Choose a quiz to challenge yourself.</p>
+    <form action="/quiz" method="POST">
+        <label for="username">Enter Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" th:required="required">
+        <br>
+        <label>
+    	<input type="radio" name="quiztype" value="java" th:required="required">
+    	Java
+	  </label>
+	
+	  <label>
+	    <input type="radio" name="quiztype" value="python">
+	    Python
+	  </label>
+	
+	  <label>
+	    <input type="radio" name="quiztype" value="miscellaneous">
+	    Miscellaneous
+	  </label><br>
+        
+        <button class="buttons" type="submit">Start Quiz</button>
+        
+    </form>
+    <button class="buttons" type="button" onclick="location.href='admin.html'">Admin Panel ⚙️</button>
+    </div> 
+</body>
+</div>
+</html>
