@@ -64,11 +64,11 @@ h1 {
 }
 .title {
 	font-size: 18px;
-	font-weight: 500;
+	font-weight: bold;
 }
 
 .option {
 	display: flex;
-	flex-direction: row;
+	
 }
 

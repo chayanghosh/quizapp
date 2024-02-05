@@ -1,6 +1,5 @@
 package com.quiz.quizapp.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +27,10 @@ public class QuestionController {
 	@Autowired
     QuestionService questionService;
 	
+	QuestionForm allQuestions;
+	
+	QuestionForm allResponse;
+	
 	@GetMapping("/")
 	public String home() {
 		return "index.html";
@@ -41,7 +44,6 @@ public class QuestionController {
 	@PostMapping("/quiz")
     public String quiz(@RequestParam String username, @RequestParam String quiztype, Model model) {
     	result.setUsername(username);
-    	QuestionForm allQuestions;
     	if(quiztype.equals("miscellaneous"))
     		allQuestions =  questionService.getAllQuestions();
     	else
@@ -55,6 +57,7 @@ public class QuestionController {
     @PostMapping("/submit")
 	public String submit(@ModelAttribute("allQuestions") QuestionForm allQuestions, Model model) {
     	model.addAttribute("allQuestions",allQuestions);
+    	allResponse=allQuestions;
 		if(!submitted) {
 			result.setTotalCorrect(questionService.getResult(allQuestions));
 			questionService.saveScore(result);
@@ -63,7 +66,13 @@ public class QuestionController {
 		model.addAttribute("totalNoOfQ",allQuestions.getQuestions().size());
 		return "result.html";
 	}
-	
+    
+    @GetMapping("/report")
+	public String report(Model model) {
+    	model.addAttribute("allQuestions",allQuestions);
+    	model.addAttribute("allResponse",allResponse);
+    	return "report.html";
+    }
     
     @PostMapping("/add")
     public String addQuestion(@RequestBody Question question) {

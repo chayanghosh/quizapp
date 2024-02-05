@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<meta charset="UTF-8">
+<head>
+<title>Report</title>
+<link rel="stylesheet" th:href="@{/style.css}"></head>
+<body>
+  <div class="quiz-container">
+	<h1>Report for your Quiz</h1>
+    
+      <div id="answers" th:each="ques, i: ${allQuestions.questions}">
+      <p class="title"
+      th:text="'Question:&nbsp'+${ques.questionTitle}"></p>
+    <div class="option">
+	  <p class="heading">Right Answer:&nbsp</p>
+	  <p class="rightAnswer" th:text="${ques.rightAnswer == 1 ? ques.option1 : ques.rightAnswer == 2 ? ques.option2 : ques.rightAnswer == 3 ? ques.option3 : ques.option4}"></p>
+	  </div>
+	  <div class="option">
+	  <p class="heading">Your Response:&nbsp</p>
+	  <p class="rightAnswer" th:text="${allResponse.questions.get(i.index).chose == 1 ? ques.option1 : allResponse.questions.get(i.index).chose == 2 ? ques.option2 : allResponse.questions.get(i.index).chose == 3 ? ques.option3 : allResponse.questions.get(i.index).chose == 4 ? ques.option4 : 'No Answer'}"></p>
+	  </div>
+     </div>
+    <button class="buttons" type="button" th:onclick="window.location.href='/'">Home</button>
+    <div id="result">
+      </div>
+  </div>
+</body>
+</html>
