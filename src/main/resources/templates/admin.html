@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<meta charset="UTF-8">
+<head>
+<title>Admin</title>
+<link rel="stylesheet" th:href="@{/style.css}"></head>
+<body>
+	
+	<div class="quiz-container">
+	
+	<form action="admin" method="post">
+		<div th:each="ques, i: ${allQuestions.questions}">
+	    	<p class="title">
+	        <input type="checkbox" th:checked="${ques.id}" th:text="${ques.questionTitle}"/>
+	        </p>
+	        	<div class="adminOptions">
+					
+					<p th:text="${ques.option1}"></p>
+					<p th:text="${ques.option2}"></p>
+					<p th:text="${ques.option3}"></p>
+					<p th:text="${ques.option4}"></p>
+					
+				</div>
+				
+	  <p class="rightAnswer" th:text="'Right Answer:- '+${ques.rightAnswer == 1 ? ques.option1 : ques.rightAnswer == 2 ? ques.option2 : ques.rightAnswer == 3 ? ques.option3 : ques.option4}"></p>
+				<div class="adminOptions">
+				<p th:text="'Difficulty:- '+${ques.difficultyLevel}"</p>				
+				<p th:text="'Category:- '+${ques.category}"</p>
+				</div>
+				
+				<hr>
+	        </input>
+	    
+	    </div>
+	</form>
+	<button class="buttons" type="submit">Delete</button>
+	 </div>
+	 
+</body>
+</html>
+	

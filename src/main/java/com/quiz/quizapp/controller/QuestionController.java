@@ -74,6 +74,13 @@ public class QuestionController {
     	return "report.html";
     }
     
+    @GetMapping("admin")
+    public String admin(Model model) {
+    	allQuestions =  questionService.getAllQuestions();
+    	model.addAttribute("allQuestions", allQuestions);
+    	return "admin";
+    }
+    
     @PostMapping("/add")
     public String addQuestion(@RequestBody Question question) {
     	questionService.addQuestion(question);

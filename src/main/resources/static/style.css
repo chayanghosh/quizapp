@@ -17,16 +17,6 @@ label {
     margin-bottom: 5px;
 }
 
-#home{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -51,7 +41,9 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
+  bottom: 2%;
+  position: sticky;  
 }
 .buttons:hover {
     background-color: #3e8e41;
@@ -69,6 +61,19 @@ h1 {
 
 .option {
 	display: flex;
-	
 }
 
+.adminOptions {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.rightAnswer {
+	color: #4CAF50;
+}
+.responseAnswer {
+	color: blue;
+}
