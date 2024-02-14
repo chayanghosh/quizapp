@@ -8,11 +8,12 @@
 <body>
 	
 	<div class="quiz-container">
-	
-	<form action="admin" method="post">
+		<button class="topButtons" type="button" th:onclick="window.location.href='/'">Home</button>
+		<a th:href="@{/create}">
+			<button type="button" class="topButtons" th:onclick="window.location.href='/create'">Add Question</button>
+		</a>
 		<div th:each="ques, i: ${allQuestions.questions}">
-	    	<p class="title">
-	        <input type="checkbox" th:checked="${ques.id}" th:text="${ques.questionTitle}"/>
+	    	<p class="title" th:text="${ques.questionTitle}">
 	        </p>
 	        	<div class="adminOptions">
 					
@@ -25,16 +26,20 @@
 				
 	  <p class="rightAnswer" th:text="'Right Answer:- '+${ques.rightAnswer == 1 ? ques.option1 : ques.rightAnswer == 2 ? ques.option2 : ques.rightAnswer == 3 ? ques.option3 : ques.option4}"></p>
 				<div class="adminOptions">
-				<p th:text="'Difficulty:- '+${ques.difficultyLevel}"</p>				
-				<p th:text="'Category:- '+${ques.category}"</p>
+					<p th:text="'Difficulty:- '+${ques.difficultyLevel}"</p>				
+					<p th:text="'Category:- '+${ques.category}"</p>
 				</div>
-				
+				<a th:href="@{/delete/{id}(id=${ques.id})}">
+					<button type="button" class="featureButtons" onclick="return confirm('Are you sure?')">Delete</button>
+				</a>
+				<a th:href="@{/edit/{id}(id=${ques.id})}">
+					<button type="button" class="featureButtons" onclick="return confirm('Are you sure?')">Edit</button>
+				</a>
 				<hr>
 	        </input>
 	    
 	    </div>
-	</form>
-	<button class="buttons" type="submit">Delete</button>
+	
 	 </div>
 	 
 </body>

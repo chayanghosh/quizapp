@@ -22,17 +22,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-#answers button {
-  margin-right: 10px;
-  padding: 10px 15px;
-  border: none;
-  background-color: #eee;
-  cursor: pointer;
-}
-
-#answers button:hover {
-  background-color: #ccc;
-}
 
 .buttons {
   background-color: #4CAF50;
@@ -46,6 +35,33 @@ h1 {
   position: sticky;  
 }
 .buttons:hover {
+    background-color: #3e8e41;
+}
+
+.featureButtons {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.featureButtons:hover {
+    background-color: #3e8e41;
+}
+.topButtons {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  top: 2%;
+  position: sticky;  
+}
+.topButtons:hover {
     background-color: #3e8e41;
 }
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Style the input fields */
+    input[type=text] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* Style the select elements */
+    select {
+      width: 100%;
+      padding: 16px 20px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f1f1f1;
+    }
+
+.quiz-container {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  width: 500px;
+}
+.buttons {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  bottom: 2%;
+  position: sticky;  
+}
+.buttons:hover {
+    background-color: #3e8e41;
+}
+label {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+  </style>
+</head>
+<body class="quiz-container">
+
+  <h1>Question Form</h1>
+
+  <!-- Create a form element to submit the data -->
+  <form action="/add" method="post" th:object="${question}">
+
+    <!-- Create a text input field for the question title -->
+    <label for="questionTitle">Question Title:</label>
+    <input type="text" id="questionTitle" name="questionTitle" placeholder="Enter the question title here..">
+
+    <!-- Create four text input fields for the options -->
+    <label for="option1">Option 1:</label>
+    <input type="text" id="option1" name="option1" placeholder="Enter the first option here..">
+
+    <label for="option2">Option 2:</label>
+    <input type="text" id="option2" name="option2" placeholder="Enter the second option here..">
+
+    <label for="option3">Option 3:</label>
+    <input type="text" id="option3" name="option3" placeholder="Enter the third option here..">
+
+    <label for="option4">Option 4:</label>
+    <input type="text" id="option4" name="option4" placeholder="Enter the fourth option here..">
+
+   
+    <label for="rightAnswer">Right Answer:</label>
+    <select id="rightAnswer" name="rightAnswer">
+      <option value=1>Option 1</option>
+      <option value=2>Option 2</option>
+      <option value=3>Option 3</option>
+      <option value=4>Option 4</option>
+    </select>
+
+    <!-- Create a dropdown menu for the difficulty level -->
+    <label for="difficultyLevel">Difficulty Level:</label>
+    <select id="difficultyLevel" name="difficultyLevel">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+
+    <!-- Create a dropdown menu for the category -->
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+      <option value="java">Java</option>
+      <option value="python">Python</option>
+    </select>
+
+    <button class="buttons" type="submit">Add question</button>
+
+  </form>
+
+</body>
+</html>

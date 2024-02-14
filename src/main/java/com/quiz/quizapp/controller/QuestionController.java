@@ -5,12 +5,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.quiz.quizapp.model.Question;
 import com.quiz.quizapp.model.QuestionForm;
@@ -81,15 +79,21 @@ public class QuestionController {
     	return "admin";
     }
     
+    @GetMapping("/create")
+	public String create() {
+		return "create";
+	}
+    
     @PostMapping("/add")
-    public String addQuestion(@RequestBody Question question) {
+    public String addQuestion(@ModelAttribute Question question) {
     	questionService.addQuestion(question);
-    	return "success";
+    	return "redirect:/admin";
     }
     
-    @DeleteMapping("delete/{id}")
+    @GetMapping("delete/{id}")
     public String deleteQuestion(@PathVariable int id) {
-    	return questionService.deleteQues(id);
+    	questionService.deleteQues(id);
+    	return "redirect:/admin";
     }
     
  
