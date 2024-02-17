@@ -8,10 +8,12 @@
 <body>
 	
 	<div class="quiz-container">
+		
 		<button class="topButtons" type="button" th:onclick="window.location.href='/'">Home</button>
 		<a th:href="@{/create}">
 			<button type="button" class="topButtons" th:onclick="window.location.href='/create'">Add Question</button>
 		</a>
+		<button class="topButtons" type="button" th:onclick="window.location.href='/logout'">Logout</button>
 		<div th:each="ques, i: ${allQuestions.questions}">
 	    	<p class="title" th:text="${ques.questionTitle}">
 	        </p>

@@ -29,6 +29,11 @@ public class QuestionController {
 	
 	QuestionForm allResponse;
 	
+	@GetMapping("/login")
+	public String login() {
+		return "login.html";
+	}
+	
 	@GetMapping("/")
 	public String home() {
 		return "index.html";
