@@ -55,4 +55,8 @@ public class QuestionService {
     	questionDao.deleteById(id);
     	return id+" question deleted.";
     }
+    
+    public Question findById(int id) {
+    	return questionDao.findById(id).get();
+    }
 }

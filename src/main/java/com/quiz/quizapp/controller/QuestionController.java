@@ -90,6 +90,12 @@ public class QuestionController {
     	return "redirect:/admin";
     }
     
+    @GetMapping("edit/{id}")
+	public String edit(@PathVariable int id,Model model) {
+    	model.addAttribute("ques", questionService.findById(id)) ;
+		return "edit";
+	}
+    
     @GetMapping("delete/{id}")
     public String deleteQuestion(@PathVariable int id) {
     	questionService.deleteQues(id);

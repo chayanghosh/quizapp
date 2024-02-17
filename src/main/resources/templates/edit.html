@@ -56,27 +56,31 @@ label {
 
   <!-- Create a form element to submit the data -->
   <form action="/add" method="post" th:object="${question}">
-
+	
+    <label for="questionTitle">Question ID:</label>
+    <input type="text" id="questionTitle" name="id" th:value="${ques.id}" readonly>
+	
+	
     <!-- Create a text input field for the question title -->
     <label for="questionTitle">Question Title:</label>
-    <input type="text" id="questionTitle" name="questionTitle" placeholder="Enter the question title here..">
+    <input type="text" id="questionTitle" name="questionTitle" placeholder="Enter the question title here.." th:value="${ques.questionTitle}">
 
     <!-- Create four text input fields for the options -->
     <label for="option1">Option 1:</label>
-    <input type="text" id="option1" name="option1" placeholder="Enter the first option here..">
+    <input type="text" id="option1" name="option1" placeholder="Enter the first option here.." th:value="${ques.option1}">
 
     <label for="option2">Option 2:</label>
-    <input type="text" id="option2" name="option2" placeholder="Enter the second option here..">
+    <input type="text" id="option2" name="option2" placeholder="Enter the second option here.." th:value="${ques.option2}">
 
     <label for="option3">Option 3:</label>
-    <input type="text" id="option3" name="option3" placeholder="Enter the third option here..">
+    <input type="text" id="option3" name="option3" placeholder="Enter the third option here.." th:value="${ques.option3}">
 
     <label for="option4">Option 4:</label>
-    <input type="text" id="option4" name="option4" placeholder="Enter the fourth option here..">
+    <input type="text" id="option4" name="option4" placeholder="Enter the fourth option here.." th:value="${ques.option4}">
 
    
     <label for="rightAnswer">Right Answer:</label>
-    <select id="rightAnswer" name="rightAnswer">
+    <select id="rightAnswer" name="rightAnswer" th:value=${ques.rightAnswer}>
       <option value=1>Option 1</option>
       <option value=2>Option 2</option>
       <option value=3>Option 3</option>
@@ -85,7 +89,7 @@ label {
 
     <!-- Create a dropdown menu for the difficulty level -->
     <label for="difficultyLevel">Difficulty Level:</label>
-    <select id="difficultyLevel" name="difficultyLevel">
+    <select id="difficultyLevel" name="difficultyLevel" th:value=${ques.difficultyLevel}>
       <option value="easy">Easy</option>
       <option value="medium">Medium</option>
       <option value="hard">Hard</option>
@@ -93,13 +97,14 @@ label {
 
     <!-- Create a dropdown menu for the category -->
     <label for="category">Category:</label>
-    <select id="category" name="category">
+    <select id="category" name="category" th:value=${ques.category}>
       <option value="java">Java</option>
       <option value="python">Python</option>
     </select>
-    
+
+    <button class="buttons" type="submit">Save</button>
     <button class="buttons" type="button" th:onclick="window.location.href='/admin'">&lt;&lt;Back</button>
-    <button class="buttons" type="submit">Add question</button>
+    
 
   </form>
 
